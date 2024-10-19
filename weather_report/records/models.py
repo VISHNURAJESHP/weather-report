@@ -11,7 +11,7 @@ class WeatherData(models.Model):
     dominant_condition = models.CharField(max_length=100)
 
     class Meta:
-        unique_together = ('city', 'date', 'time') 
+        unique_together = ('city', 'time') 
 
 class WeatherAlert(models.Model):
     city = models.CharField(max_length=100)

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Monitoring Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard">
+        <header class="header">
+            <h1>Weather Monitoring Dashboard</h1>
+            <div class="temp-selector">
+                <label for="tempUnit">Temperature Unit:</label>
+                <select id="tempUnit">
+                    <option value="Celsius">Celsius</option>
+                    <option value="Fahrenheit">Fahrenheit</option>
+                </select>
+            </div>
+            
+            <!-- Button Added Below -->
+            <div class="button-container">
+                <button id="refreshButton" class="refresh-btn">Refresh Weather Data</button>
+            </div>
+        </header>
+
+        <main>
+            <section class="weather-section">
+                <h2>Daily Weather Summary</h2>
+                <div id="weatherData" class="weather-container">
+                    <!-- Weather data will be dynamically injected here -->
+                </div>
+            </section>
+
+            <section class="alerts-section">
+                <h2>Weather Alerts</h2>
+                <div id="alerts" class="alerts-container">
+                    <!-- Alerts will be dynamically injected here -->
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>© 2024 Weather Monitoring Inc. | All Rights Reserved</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
