@@ -69,10 +69,10 @@
 <p>Below are some screenshots of the project in action:</p>
 
 <h3>1. Weather Summary Page</h3>
-<img src="C:\Users\Vishnu P\OneDrive\Desktop\weather\weather-report\weather_report\images\Screenshot (123).png" alt="Weather Summary Screenshot" width="600">
+<img src="weather_report/images/Screenshot (123).png" alt="Weather Summary Screenshot" width="600">
 
 <h3>2. Alerts Page</h3>
-<img src="C:\Users\Vishnu P\OneDrive\Desktop\weather\weather-report\weather_report\images\Screenshot (124).png" alt="Weather Alerts Screenshot" width="600">
+<img src="weather_report/images/Screenshot (124).png" alt="Weather Alerts Screenshot" width="600">
 
 <h2>License</h2>
 <p>This project is licensed under the MIT License.</p>
