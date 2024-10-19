@@ -53,7 +53,7 @@ def determine_dominant_condition(city, date):
     return None
 
 def check_alerts(city):
-    last_two_temps = WeatherData.objects.filter(city=city).order_by('-date', '-time')[:2]  # Get the last two records
+    last_two_temps = WeatherData.objects.filter(city=city).order_by('-time')[:2]  # Get the last two records
     if len(last_two_temps) == 2:
         avg_temp_1 = last_two_temps[0].avg_temp
         avg_temp_2 = last_two_temps[1].avg_temp
@@ -107,13 +107,21 @@ def get_weather_summary(request):
 # API Endpoint to return all weather alerts
 def get_alerts(request):
     # Get the latest alert for each city
-    latest_alerts = WeatherAlert.objects.values('city').annotate(latest_triggered_at=Max('triggered_at'))
+    latest_alerts = (
+        WeatherAlert.objects
+        .values('city')
+        .annotate(latest_triggered_at=Max('triggered_at'))
+        .filter(latest_triggered_at__isnull=False)  # Ensure alerts with valid triggered_at
+    )
 
     # Prepare the response data with the latest alerts
     alert_data = []
     for alert in latest_alerts:
         # Fetch the alert using the city and the latest triggered time
-        latest_alert = WeatherAlert.objects.filter(city=alert['city'], triggered_at=alert['latest_triggered_at']).first()
+        latest_alert = WeatherAlert.objects.filter(
+            city=alert['city'], triggered_at=alert['latest_triggered_at']
+        ).first()
+
         if latest_alert:
             alert_data.append({
                 'city': latest_alert.city,
